@@ -66,3 +66,5 @@
 .closing-mark{border:0}.closing-mark img{width:100%;height:auto}
 @media(max-width:999px){.story-visual:before{inset:-20px 0}.process-step:not(:first-child){padding-left:24px}.process-step>.ui-icon{position:static;margin-top:20px}.module-art{margin-inline:-26px}.ref-sponsor{left:10px}.ref-source{right:0}}
 @media(prefers-reduced-motion:reduce){.module-card:hover{transform:none}.footer-grid a:hover{transform:none}.art-tile,.cinema-image,.footer-signature img{transform:none!important}.footer:before{background:linear-gradient(#271d21ed,#271d21ed),url('assets/images/authority-chain.webp') center/cover}}
+/* Keep the five module cards on two level, intentional rows on desktop. */
+@media(min-width:1000px){.module-card:nth-child(2),.module-card:nth-child(3),.module-card:nth-child(4),.module-card:nth-child(5){margin:0}}
