@@ -1,0 +1,7 @@
+{
+  "name": "ownerstamp-website",
+  "private": true,
+  "version": "2.0.0",
+  "description": "OwnerStamp high-fidelity multipage marketing site",
+  "scripts": { "build": "node build.mjs", "serve": "python3 -m http.server 8766", "check": "node --check site.js && node --check motion.js && node --check build.mjs && node check.mjs" }
+}
