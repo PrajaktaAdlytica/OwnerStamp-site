@@ -57,12 +57,15 @@ Eight fictional Northstar Components records; all changes are in-memory. Invento
 
 Lenis uses the native window scroller and the GSAP ticker (`seconds * 1000`); its scroll event updates ScrollTrigger. No unnecessary scroller proxy or body-scroll replacement. Fonts, image loads, and disclosure changes refresh trigger measurements. Desktop pins only the bounded five-step record story. Mobile uses native-flow chapters and touch scrolling. Reduced-motion preferences bypass Lenis and GSAP entrances/pins. All content is present in the HTML before JavaScript runs.
 
+The homepage also opens with an optional scroll-led three-beat introduction: source records separate, assemble into an authority record, then expose the human review decision. It has skip and pause/resume controls, uses a synthetic example, and falls back to a still presentation for reduced motion. This sequence precedes the standard homepage hero.
+
 Maintain semantic links, native controls, keyboard tabs, focus styles, Escape behavior, and modal focus return. Decorative icons are not separate clickable controls; their parent controls provide the action and state.
 
 ## Checks performed
 
 - `npm run build`: all 18 routes generated.
-- `npm run check`: JS syntax plus 1,081 local asset/link/anchor checks, one H1 per route, unique IDs, motion runtime inclusion, retired-content and public-form-label checks passed.
+- `npm run check`: JS syntax plus 1,101 local asset/link/anchor checks, one H1 per route, unique IDs, motion runtime inclusion, retired-content and public-form-label checks passed.
+- Homepage introduction checked in desktop and mobile browser layouts; all three story beats, pause/resume, skip-to-hero, and zero horizontal overflow were verified.
 - Browser layout checks at 390 × 844 and 768 × 900 for all 18 routes: no horizontal document overflow, one H1, no broken images. Desktop compositions visually inspected, including Home, Platform, product proof, inquiry forms, and the synthetic workspace.
 - Desktop product navigation opens and closes; Escape returns focus. Ledger tabs and record selection update owner, principal, scope, and evidence. Inquiry validation focuses the first invalid field. Sign-in password visibility switches correctly. FAQ disclosures open. The pinned story updates its highlighted field/caption and its skip link reaches product proof.
 - Synthetic sponsor confirmation, ticket drafting, attestation expiry, and reset visibly verified in the browser.
@@ -74,4 +77,4 @@ Coverage limits: responsive layout was checked in same-origin frames because the
 
 The reference-led visual update and image prompts are documented in `VISUAL-UPDATE.md`. LinkedIn, X, YouTube, and Instagram controls are intentionally disabled per the user, pending actual account URLs. Add destinations only when confirmed. Both new WebP assets and all social SVGs are included locally. GSAP now also assembles relationship tiles, stages module visuals, moves the cinematic artwork with scroll, settles dashboard panels, and reveals the oversized footer signature. Reduced motion bypasses these effects.
 
-Backend integration is intentionally outside this build. Confirm real company/contact details, legal documents, security/data-processing commitments, product capability availability, and final pricing before publishing claims. Deploy to the selected account, connect the domain, and repeat deployment/browser checks after those choices are approved. No GitHub push, Vercel deployment, or DNS change has been made by this local build.
+Backend integration is intentionally outside this build. Confirm real company/contact details, legal documents, security/data-processing commitments, product capability availability, and final pricing before publishing claims. The site is pushed to `https://github.com/PrajaktaAdlytica/OwnerStamp-site.git` on `main` (initial commit `6ebcbe7`). Vercel deployment and DNS changes have not been made.
