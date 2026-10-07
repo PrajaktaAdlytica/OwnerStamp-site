@@ -74,8 +74,27 @@
       gsap.from(heroArt.querySelectorAll('.floating-reference'),{y:18,autoAlpha:0,duration:.85,stagger:.15,delay:.3,ease:'power3.out',clearProps:'transform,opacity,visibility'});
       gsap.to(heroArt.querySelector('.hero-object-image'),{y:wide?30:14,ease:'none',scrollTrigger:{trigger:heroArt,start:'top top',end:'bottom top',scrub:1}});
     }
-    const chapterOptions = element => ({trigger:element,start:'top 87%',once:true});
+    const revealDirections = ['left','right','up','down'];
+    const revealOffset = (direction,distance) => ({
+      x: direction==='left' ? -distance : direction==='right' ? distance : 0,
+      y: direction==='up' ? -distance : direction==='down' ? distance : 0
+    });
+    const chapterOptions = element => ({trigger:element,start:'top 88%',end:'top 64%',scrub:.55,invalidateOnRefresh:true});
+    let chapterIndex = 0;
     document.querySelectorAll('[data-chapter]').forEach(section => {
+      const direction = revealDirections[chapterIndex++ % revealDirections.length];
+      // Move a section's inner content rather than its outer section. This keeps
+      // pinned and sticky layouts (notably the authority story) working normally.
+      const revealTarget = section.matches('[data-story]')
+        ? section.querySelector('.story-chapters')
+        : section.querySelector(':scope > .container') || section;
+      if (revealTarget) {
+        const distance = direction==='left' || direction==='right' ? (wide?44:26) : (wide?34:22);
+        gsap.fromTo(revealTarget,
+          {...revealOffset(direction,distance),autoAlpha:.72},
+          {x:0,y:0,autoAlpha:1,ease:'none',scrollTrigger:{trigger:revealTarget,start:'top 94%',end:'top 66%',scrub:.65,invalidateOnRefresh:true}}
+        );
+      }
       if (section.matches('.home-hero,.page-hero,.intake-section')) return;
       const head = section.querySelector('.section-head,.company-statement,.closing-grid>div:first-child,.demo-top');
       if (head) gsap.from(head.children,{y:24,autoAlpha:0,stagger:.07,duration:.75,ease:'power3.out',scrollTrigger:chapterOptions(head),clearProps:'transform,opacity,visibility'});
